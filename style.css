@@ -15,3 +15,138 @@ a {
    width: 100%;
    height: 100vh;
 }
+
+.container {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   max-width: 1280px;
+   margin: 0 auto;
+   padding: 0 1rem;
+}
+
+.slide-bg {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -1;
+}
+.slide-bg img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   object-position: left top;
+}
+
+.slide-content {
+   width: 100%;
+   max-width: 650px;
+}
+.slide-content__subtitle {
+   font-size: 1.5rem;
+   font-weight: 300;
+   display: block;
+}
+.slide-content__title {
+   font-size: 4.5rem;
+   font-weight: 900;
+   line-height: 1.1;
+}
+
+.slide-content__text {
+   font-size: 1rem;
+   margin-bottom: 2rem;
+   margin-top: 1rem;
+   font-style: italic;
+}
+
+.button {
+   padding: 1rem 2rem;
+   background-color: #282828;
+   color: #fff;
+   display: inline-block;
+   transition: all 300ms;
+}
+.button:hover {
+   padding: 1rem 2.5rem;
+}
+
+/* slider active  */
+.slide-content__subtitle,
+.slide-content__title,
+.slide-content__subtitle,
+.slide-content__text,
+.slide-content__buttons {
+   transition: 900ms;
+   opacity: 0;
+   transform: translateX(-300px);
+}
+
+.slide-bg {
+   transition: all 900ms;
+   opacity: 0;
+   transform: translateY(-20px);
+}
+
+.swiper-slide-active .slide-bg {
+   opacity: 1;
+   transform: translateY(0);
+}
+.swiper-slide-active .slide-content__subtitle {
+   opacity: 1;
+   transform: translateY(0);
+   transition-delay: 300ms;
+}
+.swiper-slide-active .slide-content__title {
+   opacity: 1;
+   transform: translateY(0);
+   transition-delay: 700ms;
+}
+.swiper-slide-active .slide-content__text {
+   opacity: 1;
+   transform: translateY(0);
+   transition-delay: 900ms;
+}
+.swiper-slide-active .slide-content__buttons {
+   opacity: 1;
+   transform: translateY(0);
+   transition-delay: 1100ms;
+}
+
+/* pagination  */
+.swiper-horizontal > .swiper-pagination {
+   bottom: 25px;
+}
+.swiper-pagination-bullet {
+   background-color: #282828;
+   transition: all 300ms;
+   opacity: 1;
+}
+.swiper-pagination-bullet-active {
+   width: 40px;
+   border-radius: 10px;
+}
+@media screen and (max-width: 767px) {
+   .slide-content__title {
+      font-size: 2.5rem;
+   }
+   .button {
+      padding: 0.8rem 1.8rem;
+   }
+   .slide-bg:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.664);
+   }
+   .slide-bg img {
+      object-position: 70% top;
+   }
+}
